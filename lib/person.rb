@@ -84,21 +84,28 @@ class Person
     end
 
     def start_conversation(person, topic)
+        objects = [self, person]
         if topic == "politics"
-            self.happiness = @happiness  - 2
+            objects.each do |o|
+                o.happiness -= 2
+            end
+            # self.happiness = @happiness  - 2
 
-            person.happiness = person.happiness - 2
+            # person.happiness = person.happiness - 2
 
             return "blah blah partisan blah lobbyist"
 
         elsif topic == "weather"
+            objects.each do |o|
+                o.happiness += 1
+            end 
 
-            self.happiness = happiness  + 1
+            # self.happiness = @happiness  + 1
 
-            person.happiness = person.happiness + 1
+            # person.happiness = person.happiness + 1
 
             return "blah blah sun blah rain"
-
+            
         else topic == "other"
             return "blah blah blah blah blah"
 
